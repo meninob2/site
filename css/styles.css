@@ -1,0 +1,173 @@
+html, body {
+    width: 100%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.sessao {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 70px 70px 30px 70px;
+}
+
+#inicio {
+    min-height: 100vh;
+    padding: 0 50px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: flex-end;
+}
+
+#menu {
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+    top: 0;
+    left: 0;
+    padding: 0 25px;
+    background: #fff;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+#menu ul {
+    list-style: none;
+    box-sizing: border-box;
+}
+
+#menu>h5 {
+    font-size: 17pt;
+}
+
+#menu ul li {
+    display: inline-block;
+}
+
+#menu ul li a {
+    display: block;
+    text-decoration: none;
+    color: #000;
+    padding: 15px 10px;
+    font-weight: bold;
+    box-sizing: border-box;
+}
+
+#inicio .centro {
+    display: flex;
+    height: calc(100vh - 50px);
+}
+
+#inicio .centro>* {
+    flex: 1;
+    box-sizing: border-box;
+}
+
+#inicio .centro .banner img {
+    height: 100%;
+}
+
+#inicio .centro .conteudo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#inicio .centro .conteudo p {
+    font-size: 14pt;
+}
+
+.sessao h1.title {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+.lista-produtos {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    column-gap: 70px;
+    row-gap: 70px;
+}
+
+.lista-produtos .item .foto img {
+    width: 100%;
+}
+
+.lista-produtos .item {
+    display: grid;
+    grid-template-rows: 1fr auto 50px;
+    text-align: center;
+}
+
+.lista-produtos .item .opcoes button {
+    background: #009688;
+    border: none;
+    outline: none;
+    color: #fff;
+    border-radius: 6px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.lista-produtos .item .detalhes {
+    padding: 15px 0;
+}
+
+.lista-produtos .item .detalhes .valor {
+    font-weight: bold;
+    display: inline-flex;
+    align-items: flex-end;
+    margin: 10px 0;
+    font-size: 17pt;
+}
+
+.lista-produtos .item .detalhes .valor .decimal {
+    font-size: 13pt;
+    margin-bottom: 2px;
+}
+
+p.texto {
+    font-size: 16pt;
+}
+
+.text-center {
+    text-align: center;
+}
+
+ul.redes-sociais {
+    list-style: none;
+    display: inline-block;
+    text-align: center;
+    margin-top: 40px;
+}
+
+ul.redes-sociais li a {
+    text-decoration: none;
+    color: rgb(22, 22, 22);
+    padding: 7px 5px;
+    display: block;
+}
+
+ul.redes-sociais li a span {
+    color: rgb(58, 57, 57);
+}
+
+.align-horizontal {
+    display: flex;
+    justify-content: center;
+}
+
+footer {
+    padding: 50px 30px 50px 20px;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+}
