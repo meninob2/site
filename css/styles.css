@@ -15,7 +15,6 @@ html, body {
 }
 
 #inicio {
-    min-height: 100vh;
     padding: 0 50px;
     box-sizing: border-box;
     display: flex;
@@ -36,20 +35,58 @@ html, body {
     box-sizing: border-box;
 }
 
-#menu ul {
+button#abre-fecha-menu {
+    width: 30px;
+    height: 33px;
+    border: none;
+    outline: none;
+    display: none;
+    flex-direction: column;
+    background-color: transparent;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    pointer-events: all;
+}
+
+button#abre-fecha-menu span {
+    width: 100%;
+    flex: 1;
+    margin: 4px 0;
+    background-color: rgb(54, 54, 54);
+    transform-origin: left;
+    transition: transform 300ms;
+}
+
+#menu.aberto button#abre-fecha-menu span:nth-child(1) {
+    transform: rotate(-45deg) translateY(11px) translateX(-6px) scaleX(60%);
+}
+
+#menu.aberto button#abre-fecha-menu span:nth-child(2) {
+    transform-origin: right;
+    transform: scaleX(80%);
+}
+
+#menu.aberto button#abre-fecha-menu span:nth-child(3) {
+    transform: rotate(45deg) translateY(-11px) translateX(-6px) scaleX(60%);
+}
+
+#menu .menu-itens ul {
     list-style: none;
     box-sizing: border-box;
 }
 
 #menu>h5 {
     font-size: 17pt;
+    padding: 11px 0;
+    text-align: right;
 }
 
-#menu ul li {
+#menu .menu-itens ul li {
     display: inline-block;
 }
 
-#menu ul li a {
+#menu .menu-itens ul li a {
     display: block;
     text-decoration: none;
     color: #000;
@@ -58,24 +95,61 @@ html, body {
     box-sizing: border-box;
 }
 
-#inicio .centro {
-    display: flex;
-    height: calc(100vh - 50px);
+#inicio .centro>* {
+    box-sizing: border-box;
 }
 
-#inicio .centro>* {
-    flex: 1;
-    box-sizing: border-box;
+#inicio .centro .banner {
+    height: calc(100vh - 60px);
 }
 
 #inicio .centro .banner img {
     height: 100%;
 }
 
-#inicio .centro .conteudo {
+#inicio .centro {
+    min-height: calc(100vh - 60px);
+    margin-top: 60px;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    width: 100%;
+    align-items: center;
+}
+
+#inicio .centro .conteudo {
+    flex: 1;
+}
+
+@media screen and (max-width: 1100px) {
+    #inicio .centro .banner {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    button#abre-fecha-menu {
+        display: flex;
+    }
+    #menu .menu-itens {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 200px;
+        z-index: 100;
+        padding-top: 40px;
+        transform: translateX(-140px);
+        pointer-events: none;
+        transition: transform 300ms, background-color 300ms;
+        background-color: transparent;
+    }
+    #menu.aberto .menu-itens {
+        background-color: #fff;
+        transform: translateX(0px);
+        pointer-events: all;
+    }
+    #menu .menu-itens ul li {
+        display: block;
+    }
 }
 
 #inicio .centro .conteudo p {
@@ -91,7 +165,7 @@ html, body {
 .lista-produtos {
     display: grid;
     width: 100%;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     column-gap: 70px;
     row-gap: 70px;
 }
@@ -114,6 +188,7 @@ html, body {
     border-radius: 6px;
     padding: 5px 10px;
     cursor: pointer;
+    font-size: 12pt;
 }
 
 .lista-produtos .item .detalhes {
@@ -126,6 +201,10 @@ html, body {
     align-items: flex-end;
     margin: 10px 0;
     font-size: 17pt;
+}
+
+.lista-produtos .item .detalhes .produto {
+    font-size: 12pt;
 }
 
 .lista-produtos .item .detalhes .valor .decimal {
